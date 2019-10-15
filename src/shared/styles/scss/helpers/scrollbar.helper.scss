@@ -1,0 +1,13 @@
+div {
+    &::-webkit-scrollbar {
+        position: absolute;
+        left: 5px;
+        width: 5px;
+        background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        @include rounded(10px);
+        @include background-color(rgba(black, 0.1));
+    }
+}

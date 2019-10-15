@@ -1,0 +1,18 @@
+{
+  "extends": ["stylelint-prettier/recommended"],
+  "plugins": [
+    "stylelint-scss",
+    "stylelint-prettier"
+  ],
+  "rules": {
+    "prettier/prettier": true,
+    "at-rule-no-unknown": [null, {
+      "ignoreAtRules": ["xl"]
+    }],
+    "unit-no-unknown": null,
+    "scss/at-rule-no-unknown": true,
+    "max-empty-lines": 2,
+    "indentation": 4,
+    "no-descending-specificity": null
+  }
+}

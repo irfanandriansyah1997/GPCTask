@@ -1,0 +1,98 @@
+/**
+ * Pagination Component Helper
+ */
+.ui-molecules-pagination {
+    display: flex;
+    position: relative;
+    z-index: 1;
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 56px;
+        right: 56px;
+        height: 40px;
+        z-index: -1;
+
+        @include rounded(50px);
+        @include background-color(white);
+        @include box-shadow-multi(0 2px 16px 0 rgba(0, 0, 0, 0.08));
+    }
+
+    &__item--prev,
+    &__item--next {
+        width: 40px;
+    }
+
+    li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 40px;
+        height: 40px;
+
+        &:first-child {
+            @include margin-right(16px);
+        }
+
+        &:last-child {
+            @include margin-left(16px);
+        }
+
+        &:first-child,
+        &:last-child {
+            @include rounded(50%);
+            @include background-color(white);
+            @include box-shadow-multi(0 2px 16px 0 rgba(0, 0, 0, 0.08));
+        }
+
+        &:nth-child(2) {
+            @include rounded(50px 0 0 50px);
+        }
+
+        &:nth-last-child(2) {
+            @include rounded(0 50px 50px 0);
+        }
+
+        &.disabled {
+            opacity: 0.25;
+
+            > a {
+                &:hover {
+                    @include background-color(rgba(get-color(heading), 0.75));
+                }
+            }
+        }
+
+        > a {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+
+            @include rounded(20px);
+            @include padding(all, 10px);
+            @include transition(0.3s cubic-bezier(0.7, 0.3, 0, 1));
+
+            &:hover,
+            &.ui-molecules-pagination__link--active {
+                @include background-color(heading);
+                @include font-color(white);
+            }
+        }
+
+        &.ui-molecules-pagination__break {
+            > a {
+                @include font-color(text);
+
+                &:hover {
+                    @include background-color(initial);
+                    @include font-color(initial);
+                }
+            }
+        }
+    }
+}
