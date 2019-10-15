@@ -1,0 +1,37 @@
+{
+    "compilerOptions": {
+        "sourceMap": true,
+        "target": "es5",
+        "jsx": "react",
+        "module": "esNext",
+        "moduleResolution": "node",
+        "experimentalDecorators": true,
+        "declaration": false,
+        "removeComments": true,
+        "noImplicitReturns": true,
+        "noUnusedLocals": true,
+        "strict": true,
+        "strictFunctionTypes": false,
+        "outDir": "build",
+        "lib": ["es6", "es7", "dom"],
+        "baseUrl": "./",
+        "paths": {
+            "@/store/*": ["./src/store/*"],
+            "@/reducers/*": ["./src/store/reducers/*"],
+            "@/action/*": ["./src/store/action/*"],
+            "@/atoms/*": ["./src/shared/components/atoms/*"],
+            "@/molecules/*": ["./src/shared/components/molecules/*"],
+            "@/organism/*": ["./src/shared/components/organism/*"],
+            "@/templates/*": ["./src/shared/components/templates/*"],
+            "@/interfaces/*": ["./src/shared/interfaces/*"],
+            "@/utils/*": ["./src/shared/utils/*"],
+            "@/abstract/*": ["./src/shared/abstract/*"],
+            "@/constant/*": ["./src/shared/constant/*"],
+            "@/scss/*": ["./src/shared/styles/scss/*"],
+            "@/styled-component/*": ["./src/shared/styles/styled-component/*"],
+            "@/router/*": ["./src/router/*"],
+            "@/*": ["./src/*"]
+        }
+    },
+    "exclude": ["build", "node_modules"]
+}

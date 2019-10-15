@@ -1,0 +1,11 @@
+version: '3.2'
+services:
+  app:
+    build:
+    # Builds the image from local Dockerfile
+      context: .
+      dockerfile: Dockerfile-base
+    volumes:
+      - ../../../:/app
+    ports:
+      - "4001:80"
