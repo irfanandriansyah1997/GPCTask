@@ -9,6 +9,7 @@ const RouterApps: SFC = () => (
     <Router>
         <Suspense fallback={<div>Loading...</div>}>
             <Switch />
+            Hello World
         </Suspense>
     </Router>
 );
