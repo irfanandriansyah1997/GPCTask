@@ -1,6 +1,9 @@
 import * as React from 'react';
 
 import { StateTypesCoreApps } from './interfaces/core.interface';
+import MobileRouterApps from '@/mobile/router';
+import DesktopRouterApps from '@/desktop/router';
+import CoreContext from './context/core.context';
 
 /**
  * Core Apps
@@ -42,10 +45,9 @@ class CoreApps extends React.PureComponent<any, StateTypesCoreApps> {
         const { isMobile, width } = this.state;
 
         return (
-            <div className="ui-apps">
-                {isMobile ? 'mobile ' : 'desktop '}
-                {width}
-            </div>
+            <CoreContext.Provider value={{ isMobile, width }}>
+                {isMobile ? <MobileRouterApps /> : <DesktopRouterApps />}
+            </CoreContext.Provider>
         );
     }
 }
