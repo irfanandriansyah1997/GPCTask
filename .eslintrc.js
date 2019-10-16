@@ -37,6 +37,7 @@ module.exports = {
                     'getSnapshotBeforeUpdate',
                     'componentDidUpdate',
                     'componentDidUpdate',
+                    'componentDidMount',
                     'componentWillMount',
                     'componentWillUnmount',
                     'componentDidCatch'
