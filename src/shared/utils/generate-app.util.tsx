@@ -8,7 +8,7 @@ import { ThemeProvider } from 'styled-components';
 import { EnvironmentApps } from '@/interfaces/environment.interface';
 import { ConfigureStoreResponseInterface } from '@/store/utils/interfaces/configure-store.interface';
 import GenerateStore from '@/store';
-import RouterApps from '@/router';
+import CoreApps from '@/core';
 import DefaultTheme from '@/styled-component/theme/default';
 
 /**
@@ -37,7 +37,7 @@ class GenerateAppUtil {
             <Provider store={store}>
                 <PersistGate loading={null} persistor={persistor}>
                     <ThemeProvider theme={DefaultTheme}>
-                        <RouterApps />
+                        <CoreApps />
                     </ThemeProvider>
                 </PersistGate>
             </Provider>

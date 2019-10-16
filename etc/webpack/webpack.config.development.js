@@ -4,7 +4,7 @@ const path = require('path');
 const baseConfig = require('./webpack.config.base');
 
 const HOST = '0.0.0.0';
-const PORT = 8000;
+const PORT = 4001;
 
 module.exports = merge(baseConfig, {
     mode: 'development',
