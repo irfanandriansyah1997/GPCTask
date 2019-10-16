@@ -5,7 +5,7 @@
  */
 
 import * as React from 'react';
-import { StateTypesCoreApps } from '../interfaces/core.interface';
+import { StateTypesCoreApps } from '@/core/interfaces/core.interface';
 
 const CoreContext = React.createContext<StateTypesCoreApps>({
     isMobile: false,

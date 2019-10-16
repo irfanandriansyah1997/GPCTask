@@ -1,9 +1,10 @@
 import * as React from 'react';
 
 import { StateTypesCoreApps } from './interfaces/core.interface';
-import MobileRouterApps from '@/mobile/router';
-import DesktopRouterApps from '@/desktop/router';
 import CoreContext from './context/core.context';
+
+const MobileRouterApps = React.lazy(() => import(/* webpackChunkName: "mobile.module" */ '@/mobile/router'));
+const DesktopRouterApps = React.lazy(() => import(/* webpackChunkName: "desktop.module" */ '@/desktop/router'));
 
 /**
  * Core Apps
@@ -45,9 +46,11 @@ class CoreApps extends React.PureComponent<any, StateTypesCoreApps> {
         const { isMobile, width } = this.state;
 
         return (
-            <CoreContext.Provider value={{ isMobile, width }}>
-                {isMobile ? <MobileRouterApps /> : <DesktopRouterApps />}
-            </CoreContext.Provider>
+            <React.Suspense fallback={null}>
+                <CoreContext.Provider value={{ isMobile, width }}>
+                    {isMobile ? <MobileRouterApps /> : <DesktopRouterApps />}
+                </CoreContext.Provider>
+            </React.Suspense>
         );
     }
 }
