@@ -10,6 +10,10 @@ const LoginModule = React.lazy(() => import(
     /* webpackChunkName: "desktop.login.module" */ '@/desktop/modules/login/login.module'
 ));
 
+const Error404Module = React.lazy(() => import(
+    /* webpackChunkName: "desktop.404.module" */ '@/desktop/modules/error-404/error-404.module'
+));
+
 /**
  * Render Router
  */
@@ -19,6 +23,7 @@ const DesktopRouterApps: SFC = () => (
             <Switch>
                 <Route path="/admin" component={AdminModule} />
                 <Route path="/login" component={LoginModule} />
+                <Route path="*" component={Error404Module} />
             </Switch>
         </Suspense>
     </Router>

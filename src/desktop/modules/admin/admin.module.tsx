@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { ComponentType, Suspense } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { RouteComponentProps } from 'react-router';
+import { RouteComponentProps, Redirect } from 'react-router';
 
 
 const ListingPage = React.lazy(() => import(
@@ -18,6 +18,7 @@ const AdminDesktopRouterApps: ComponentType<RouteComponentProps> = ({ match }: R
     <Suspense fallback={null}>
         <Switch>
             <Route path={`${match.path}/listing`} component={ListingPage} />
+            <Route path="*" render={() => <Redirect to="/404" />} />
         </Switch>
     </Suspense>
 );
