@@ -19,8 +19,8 @@ export const authLoginAction = (param: AuthModelFormInterface, router: RouteComp
         type: AUTH_ON_FETCH_DATA
     });
 
-    try {
-        setTimeout(() => {
+    new Promise(resolve => setTimeout(resolve, 300))
+        .then(() => {
             dispatch({
                 type: AUTH_ON_SUCCESS,
                 payload: {
@@ -34,7 +34,7 @@ export const authLoginAction = (param: AuthModelFormInterface, router: RouteComp
                 type: SET_CREDENTIAL,
                 payload: {
                     isLogin: true,
-                    token: 'ahsuquduiqgfuigqwfuiqwgfqwifqwifqwfwqf1091849021809',
+                    token: 'hafuqfajh7qryq8t7q0jkqcj90418290hcjkahdhadnad',
                     tokenExpiredTimestamp: 4724986633000
                 }
             });
@@ -42,19 +42,19 @@ export const authLoginAction = (param: AuthModelFormInterface, router: RouteComp
             if (router) {
                 router.history.push('/');
             }
-        }, 5000);
-    } catch (error) {
-        dispatch({
-            type: AUTH_ON_ERROR,
-            payload: {
-                error: {
-                    statusCode: 500,
-                    errorMessage: 'Error Message',
-                    errorStackTrace: []
+        })
+        .catch((error) => {
+            dispatch({
+                type: AUTH_ON_ERROR,
+                payload: {
+                    error: {
+                        statusCode: 500,
+                        errorMessage: 'Error Message',
+                        errorStackTrace: []
+                    }
                 }
-            }
+            });
         });
-    }
 };
 
 /**
