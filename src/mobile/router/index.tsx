@@ -2,24 +2,26 @@ import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import * as React from 'react';
 import { Suspense, SFC } from 'react';
 
-/**
- * Sample Component
- */
-const Component: SFC = () => (
-    <div>Admin Mobile</div>
-);
+const AdminModule = React.lazy(() => import(
+    /* webpackChunkName: "mobile.admin.module" */ '@/mobile/modules/admin/admin.module'
+));
+
+const LoginModule = React.lazy(() => import(
+    /* webpackChunkName: "mobile.login.module" */ '@/mobile/modules/login/login.module'
+));
 
 /**
  * Render Router
  */
-const MobileRouterApps: SFC = () => (
+const DesktopRouterApps: SFC = () => (
     <Router>
         <Suspense fallback={<div>Loading...</div>}>
             <Switch>
-                <Route exact path="/" component={Component} />
+                <Route path="/admin" component={AdminModule} />
+                <Route path="/login" component={LoginModule} />
             </Switch>
         </Suspense>
     </Router>
 );
 
-export default MobileRouterApps;
+export default DesktopRouterApps;
