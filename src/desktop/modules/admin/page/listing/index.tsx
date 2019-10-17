@@ -4,7 +4,7 @@ import {
     Route,
     Switch
 } from 'react-router-dom';
-import { RouteComponentProps } from 'react-router';
+import { RouteComponentProps, Redirect } from 'react-router';
 
 const Dashboard = React.lazy(() => import(
     /* webpackChunkName: "desktop.listing.dashboard" */ './listing-dashboard.page'
@@ -28,6 +28,7 @@ const AdminListingPageRouter: React.ComponentType<RouteComponentProps> = ({ matc
             <Route exact path={`${match.path}`} component={Dashboard} />
             <Route exact path={`${match.path}/create`} component={Add} />
             <Route exact path={`${match.path}/:id`} component={Edit} />
+            <Route path="*" render={() => <Redirect to="/404" />} />
         </Switch>
     </Suspense>
 );

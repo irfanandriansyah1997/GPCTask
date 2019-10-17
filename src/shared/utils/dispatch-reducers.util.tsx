@@ -1,4 +1,4 @@
-import { DefaultDynamicObject } from '@/interfaces/object.interface';
+import { DefaultDynamicObject } from '@/interfaces/general/object.interface';
 
 /**
  * withTargetDispatch helper

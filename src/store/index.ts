@@ -7,7 +7,7 @@
 
 import { Reducers } from './reducers';
 import ConfigureStoreHelper from './utils/configure-store.util';
-import { EnvironmentApps } from '@/interfaces/environment.interface';
+import { EnvironmentApps } from '@/interfaces/general/environment.interface';
 import { ConfigureStoreResponseInterface } from './utils/interfaces/configure-store.interface';
 
 /**

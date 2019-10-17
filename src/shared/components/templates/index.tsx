@@ -2,8 +2,8 @@ import * as React from 'react';
 import { SFC, ComponentClass } from 'react';
 
 import DefaultTemplateComponent from './default/default.template';
-import { TemplateItemInterface } from '@/interfaces/template.interface';
-import { DefaultDynamicObject } from '@/interfaces/object.interface';
+import { TemplateItemInterface } from '@/interfaces/general/template.interface';
+import { DefaultDynamicObject } from '@/interfaces/general/object.interface';
 
 const ListTemplate = [
     {

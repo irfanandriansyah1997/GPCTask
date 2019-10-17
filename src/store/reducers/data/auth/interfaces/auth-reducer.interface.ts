@@ -5,7 +5,7 @@
  * @since 2019.09.15
  */
 
-import { ApiModelInterface } from '@/interfaces/api-model.interface';
+import { ApiModelInterface } from '@/interfaces/general/api-model.interface';
 
 /**
  * Auth Reducer Interface
