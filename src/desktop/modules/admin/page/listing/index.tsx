@@ -6,14 +6,8 @@ import {
 } from 'react-router-dom';
 import { RouteComponentProps, Redirect } from 'react-router';
 
-const Dashboard = React.lazy(() => import(
-    /* webpackChunkName: "desktop.listing.dashboard" */ './listing-dashboard.page'
-));
 const Add = React.lazy(() => import(
     /* webpackChunkName: "desktop.listing.add" */ './listing-add.page'
-));
-const Edit = React.lazy(() => import(
-    /* webpackChunkName: "desktop.listing.edit" */ './listing-edit.page'
 ));
 
 /**
@@ -25,9 +19,7 @@ const Edit = React.lazy(() => import(
 const AdminListingPageRouter: React.ComponentType<RouteComponentProps> = ({ match }: RouteComponentProps) => (
     <Suspense fallback={null}>
         <Switch>
-            <Route exact path={`${match.path}`} component={Dashboard} />
             <Route exact path={`${match.path}/create`} component={Add} />
-            <Route exact path={`${match.path}/:id`} component={Edit} />
             <Route path="*" render={() => <Redirect to="/404" />} />
         </Switch>
     </Suspense>
