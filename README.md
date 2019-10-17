@@ -20,6 +20,12 @@ npm run lint
 
 ## How to
 
+### Setup when development
+
+```
+make setup-dev
+```
+
 ### Run web development
 
 To run a web using `docker` and `docker-compose`
