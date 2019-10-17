@@ -1,0 +1,26 @@
+@import "@/scss/app.scss";
+
+.ui-atoms-step {
+    display: flex;
+    flex-direction: column;
+    font-size: map-get($font-size-general, xs);
+    font-weight: map-get($font-weight-general, semibold);
+}
+
+.ui-atoms-step__title-wrapper,
+.ui-atoms-step__progress-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.ui-atoms-step__title-wrapper {
+    @include padding-bottom(map-get($width-general, 4));
+}
+
+.ui-atoms-step__progress-bar {
+    height: map-get($width-general, 4);
+    @include background-color(#eef1f6);
+    border-radius: 5px;
+}
