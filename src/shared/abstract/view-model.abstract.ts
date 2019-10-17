@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Component } from 'react';
-import { ViewModelAbstractInterface } from '@/interfaces/view-model-abstract.interface';
-import { BaseDefaultContext } from '@/interfaces/context.interface';
+import { ViewModelAbstractInterface } from '@/interfaces/general/view-model-abstract.interface';
+import { BaseDefaultContext } from '@/interfaces/general/context.interface';
 
 /**
  * View Model Abstract

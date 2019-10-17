@@ -13,62 +13,29 @@
         "strict": true,
         "strictFunctionTypes": false,
         "outDir": "build",
-        "lib": [
-            "es6",
-            "es7",
-            "dom"
-        ],
+        "lib": ["es6", "es7", "dom"],
         "baseUrl": "./",
         "paths": {
-            "@/store/*": [
-                "./src/store/*"
-            ],
-            "@/reducers/*": [
-                "./src/store/reducers/*"
-            ],
-            "@/action/*": [
-                "./src/store/action/*"
-            ],
-            "@/atoms/*": [
-                "./src/shared/components/atoms/*"
-            ],
-            "@/molecules/*": [
-                "./src/shared/components/molecules/*"
-            ],
-            "@/organism/*": [
-                "./src/shared/components/organism/*"
-            ],
-            "@/templates/*": [
-                "./src/shared/components/templates/*"
-            ],
-            "@/interfaces/*": [
-                "./src/shared/interfaces/*"
-            ],
-            "@/utils/*": [
-                "./src/shared/utils/*"
-            ],
-            "@/abstract/*": [
-                "./src/shared/abstract/*"
-            ],
-            "@/constant/*": [
-                "./src/shared/constant/*"
-            ],
-            "@/scss/*": [
-                "./src/shared/styles/scss/*"
-            ],
-            "@/styled-component/*": [
-                "./src/shared/styles/styled-component/*"
-            ],
-            "@/core/*": [
-                "src/core/*"
-            ],
-            "@/*": [
-                "./src/*"
-            ]
+            "@/store/*": ["./src/store/*"],
+            "@/reducers/*": ["./src/store/reducers/*"],
+            "@/desktop-mod/*": ["./src/desktop/modules/*"],
+            "@/desktop-admin-page/*": ["./src/desktop/modules/admin/page/*"],
+            "@/mobile-mod/*": ["./src/mobile/modules/*"],
+            "@/mobile-admin-page/*": ["./src/mobile/modules/admin/page/*"],
+            "@/action/*": ["./src/store/action/*"],
+            "@/atoms/*": ["./src/shared/components/atoms/*"],
+            "@/molecules/*": ["./src/shared/components/molecules/*"],
+            "@/organism/*": ["./src/shared/components/organism/*"],
+            "@/templates/*": ["./src/shared/components/templates/*"],
+            "@/interfaces/*": ["./src/shared/interfaces/*"],
+            "@/utils/*": ["./src/shared/utils/*"],
+            "@/abstract/*": ["./src/shared/abstract/*"],
+            "@/constant/*": ["./src/shared/constant/*"],
+            "@/scss/*": ["./src/shared/styles/scss/*"],
+            "@/styled-component/*": ["./src/shared/styles/styled-component/*"],
+            "@/core/*": ["src/core/*"],
+            "@/*": ["./src/*"]
         }
     },
-    "exclude": [
-        "build",
-        "node_modules"
-    ]
+    "exclude": ["build", "node_modules"]
 }

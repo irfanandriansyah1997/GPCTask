@@ -14,7 +14,7 @@ import SessionReducers from './data/session';
 
 /** UI Reducers */
 
-import { ReducerActionParamInterface } from '@/interfaces/store.interface';
+import { ReducerActionParamInterface } from '@/interfaces/general/store.interface';
 
 export const Reducers = combineReducers({
     common: combineReducers({

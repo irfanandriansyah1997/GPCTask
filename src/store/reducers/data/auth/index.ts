@@ -6,7 +6,7 @@
  */
 
 import { AuthReducerInterface } from './interfaces/auth-reducer.interface';
-import { ReducerActionParamInterface } from '@/interfaces/store.interface';
+import { ReducerActionParamInterface } from '@/interfaces/general/store.interface';
 import {
     AUTH_ON_FETCH_DATA, AUTH_ON_SUCCESS, AUTH_ON_ERROR, USER_ON_LOGOUT
 } from './constant/auth-reducer.constant';

@@ -1,5 +1,5 @@
 import { SessionReducerInterface } from './interfaces/session-reducer.interface';
-import { ReducerActionParamInterface } from '@/interfaces/store.interface';
+import { ReducerActionParamInterface } from '@/interfaces/general/store.interface';
 import { SET_CREDENTIAL, UNSET_CREDENTIAL } from './constant/session-reducer.constant';
 import SessionReducersMock from './mocks/session-reducer.mock';
 

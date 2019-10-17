@@ -14,6 +14,14 @@ module.exports = {
             '@/store': utils.resolve('./src/store'),
             '@/reducers': utils.resolve('./src/store/reducers'),
             '@/action': utils.resolve('./src/store/action'),
+            '@/desktop-mod': utils.resolve('./src/desktop/modules'),
+            '@/desktop-admin-page': utils.resolve(
+                './src/desktop/modules/admin/page'
+            ),
+            '@/mobile-mod': utils.resolve('./src/mobile/modules'),
+            '@/mobile-admin-page': utils.resolve(
+                './src/mobile/modules/admin/page'
+            ),
             '@/atoms': utils.resolve('./src/shared/components/atoms'),
             '@/molecules': utils.resolve('./src/shared/components/molecules'),
             '@/organism': utils.resolve('./src/shared/components/organism'),
@@ -23,7 +31,9 @@ module.exports = {
             '@/abstract': utils.resolve('./src/shared/abstract'),
             '@/constant': utils.resolve('./src/shared/constant'),
             '@/scss': utils.resolve('./src/shared/styles/scss'),
-            '@/styled-component': utils.resolve('./src/shared/styles/styled-component'),
+            '@/styled-component': utils.resolve(
+                './src/shared/styles/styled-component'
+            ),
             '@/router': utils.resolve('./src/router'),
             '@': utils.resolve('./src')
         }

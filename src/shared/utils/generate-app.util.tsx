@@ -5,7 +5,7 @@ import { SFC } from 'react';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { ThemeProvider } from 'styled-components';
-import { EnvironmentApps } from '@/interfaces/environment.interface';
+import { EnvironmentApps } from '@/interfaces/general/environment.interface';
 import { ConfigureStoreResponseInterface } from '@/store/utils/interfaces/configure-store.interface';
 import GenerateStore from '@/store';
 import CoreApps from '@/core';

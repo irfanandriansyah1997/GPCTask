@@ -74,12 +74,7 @@ module.exports = {
             }
         ],
         'linebreak-style': [2, 'unix'],
-        'max-len': [
-            2,
-            {
-                code: 120
-            }
-        ],
+        'max-len': [0],
         'no-bitwise': [
             1,
             {

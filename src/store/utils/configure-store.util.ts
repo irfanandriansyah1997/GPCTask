@@ -3,7 +3,7 @@ import storage from 'redux-persist/lib/storage';
 import { compose, createStore, applyMiddleware } from 'redux';
 import { persistStore, persistReducer, PersistConfig } from 'redux-persist';
 
-import { EnvironmentApps } from '@/interfaces/environment.interface';
+import { EnvironmentApps } from '@/interfaces/general/environment.interface';
 import { ConfigureStoreResponseInterface } from './interfaces/configure-store.interface';
 
 /**

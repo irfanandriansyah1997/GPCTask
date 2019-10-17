@@ -1,7 +1,7 @@
 import AuthReducers from '@/store/reducers/data/auth';
 import AuthReducersMock from '@/store/reducers/data/auth/mocks/auth-reducer.mock';
 import { AuthReducerInterface, AuthModelInterface } from '@/store/reducers/data/auth/interfaces/auth-reducer.interface';
-import { ApiErrorInterface } from '@/interfaces/api-model.interface';
+import { ApiErrorInterface } from '@/interfaces/general/api-model.interface';
 import {
     AUTH_ON_FETCH_DATA,
     AUTH_ON_SUCCESS,
