@@ -75,7 +75,7 @@ const MenuItemComponent: SFC<DefaultMenuItemComponentProps> = ({
                 </TextComponent>
                 { label ? (
                     <TextComponent
-                        tag="p"
+                        tag="span"
                         align="left"
                         fontWeight={400}
                         styling="meta"

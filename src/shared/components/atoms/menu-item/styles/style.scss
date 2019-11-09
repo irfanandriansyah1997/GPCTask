@@ -24,15 +24,16 @@
         height: 100%;
         opacity: 0;
 
+        @include rounded(5px 0 0 5px);
         @include transform-translateX(100%);
-        @include background-color(primary);
+        @include background-color(secondary);
     }
 
     &--active,
     &:hover {
         .ui-atomic-icon,
-        .ui-atomic-text {
-            @include font-color(primary);
+        p.ui-atomic-text {
+            @include font-color(secondary);
         }
 
         &:before {

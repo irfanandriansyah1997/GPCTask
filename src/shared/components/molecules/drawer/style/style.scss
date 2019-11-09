@@ -9,6 +9,24 @@
     @include background-color(white);
     @include border-right(1px, solid, heading300);
 
+    &__heading {
+        &:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            width: 30px;
+            height: 30px;
+
+            @include rounded(50%);
+            @include background-color(rgba(get-color(secondary), 0.6));
+            @include box-shadow-multi(
+                0 0 0 10px rgba(get-color(secondary), 0.85)
+            );
+            @include transform-translateY(-50%);
+        }
+    }
+
     &__footer {
         bottom: 30px;
         left: 30px;

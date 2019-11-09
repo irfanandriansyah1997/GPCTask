@@ -8,4 +8,8 @@
 
     @include padding-left(280px);
     @include background-color(heading200);
+
+    &__content {
+        @include padding(all, 24px);
+    }
 }

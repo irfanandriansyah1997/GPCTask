@@ -12,13 +12,13 @@ import IconComponent from '@/atoms/icon/icon.component';
  */
 const DrawerComponent: React.SFC<any> = () => (
     <div className="ui-molecules-drawer fixed">
-        <div className="ui-molecules-drawer__heading pl-16 pr-16 pt-24 mb-72">
+        <div className="ui-molecules-drawer__heading pl-72 relative pr-16 pt-24 pb-24 mb-72">
             <TextComponent
                 align="left"
                 fontWeight={700}
                 styling="heading-2"
                 tag="h1"
-                color="primary"
+                color="heading"
             >
                 Simulator
             </TextComponent>
@@ -62,7 +62,7 @@ const DrawerComponent: React.SFC<any> = () => (
                 Brute Force
             </MenuItemComponent>
         </div>
-        <div className="ui-molecules-drawer__footer absolute">
+        <div className="ui-molecules-drawer__footer absolute hidden">
             <div className="ui-molecules-drawer__footer__title flex p-16">
                 <TextComponent
                     align="left"

@@ -21,12 +21,14 @@ class AppModules extends React.Component<any> {
             <div className="ui-app flex">
                 <Router>
                     <DrawerComponent />
-                    <Suspense fallback={<div>Loading...</div>}>
-                        <Switch>
-                            <Route exact path="/" component={TriangleModule} />
-                            <Route path="/triangle" component={TriangleModule} />
-                        </Switch>
-                    </Suspense>
+                    <div className="ui-app__content">
+                        <Suspense fallback={<div>Loading...</div>}>
+                            <Switch>
+                                <Route exact path="/" component={TriangleModule} />
+                                <Route path="/triangle" component={TriangleModule} />
+                            </Switch>
+                        </Suspense>
+                    </div>
                 </Router>
             </div>
         );
