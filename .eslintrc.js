@@ -110,6 +110,48 @@ module.exports = {
         'react/prefer-stateless-function': 'off',
         'react/no-unescaped-entities': 0,
         'react/no-danger': 0,
+        'react/sort-comp': [
+            2,
+            {
+                order: [
+                    'instance-variables',
+                    'static-variables',
+                    'static-methods',
+                    'lifecycle',
+                    'everything-else',
+                    'render'
+                ],
+                groups: {
+                    lifecycle: [
+                        'displayName',
+                        'propTypes',
+                        'contextTypes',
+                        'childContextTypes',
+                        'mixins',
+                        'statics',
+                        'defaultProps',
+                        'constructor',
+                        'getDefaultProps',
+                        'state',
+                        'getInitialState',
+                        'getChildContext',
+                        'getDerivedStateFromProps',
+                        'componentWillMount',
+                        'UNSAFE_componentWillMount',
+                        'componentDidMount',
+                        'componentWillReceiveProps',
+                        'UNSAFE_componentWillReceiveProps',
+                        'shouldComponentUpdate',
+                        'componentWillUpdate',
+                        'UNSAFE_componentWillUpdate',
+                        'getSnapshotBeforeUpdate',
+                        'componentDidUpdate',
+                        'componentDidCatch',
+                        'componentWillUnmount'
+                    ]
+                }
+            }
+        ],
         'react/no-array-index-key': 0,
         'react/require-default-props': 2,
         'react/jsx-indent-props': [2, 4],

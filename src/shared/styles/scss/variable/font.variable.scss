@@ -2,9 +2,10 @@
  * Font Size Variable
  */
 
-$font-primary: "Avenir Next", sans-serif;
-$font-secondary: "Roboto", sans-serif;
-$font-code: "Fira Code", monospace;
+$font-primary: 'Quicksand', sans-serif;
+$font-secondary: 'Avenir Next', sans-serif;
+$font-tertiary: 'Roboto', sans-serif;
+$font-code: 'Fira Code', monospace;
 
 $font-size-general: (
     xxs: 10px,
@@ -25,13 +26,13 @@ $font-size-general: (
  */
 
 $font-weight-general: (
-    "hairline": 100,
-    "thin": 200,
-    "light": 300,
-    "normal": 400,
-    "medium": 500,
-    "semibold": 600,
-    "bold": 700,
-    "extrabold": 800,
-    "black": 900
+    'hairline': 100,
+    'thin': 200,
+    'light': 300,
+    'normal': 400,
+    'medium': 500,
+    'semibold': 600,
+    'bold': 700,
+    'extrabold': 800,
+    'black': 900
 );
