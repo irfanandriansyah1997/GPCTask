@@ -4,6 +4,8 @@ import './style/style.scss';
 import TextComponent from '@/atoms/text/text.component';
 import MenuItemComponent from '@/atoms/menu-item/menu-item.component';
 import IconComponent from '@/atoms/icon/icon.component';
+import { DefaultMenuItemComponentProps } from '@/interfaces/component/component-menu-item.interface';
+import { DefaultMenu } from '@/shared/const/menu.const';
 
 /**
  * Drawer Component
@@ -34,33 +36,12 @@ const DrawerComponent: React.SFC<any> = () => (
             </TextComponent>
         </div>
         <div className="ui-molecules-drawer__menu">
-            <MenuItemComponent
-                exact
-                icon="home_work"
-                link="/"
-                type="default"
-                label="ingin kembali ke halaman awal ?"
-            >
-                Halaman Awal
-            </MenuItemComponent>
-            <MenuItemComponent
-                exact
-                icon="transform"
-                link="/triangle"
-                type="default"
-                label="transform, translasi dan rotasi"
-            >
-                Simulasi Trigonometri
-            </MenuItemComponent>
-            <MenuItemComponent
-                exact
-                icon="show_chart"
-                link="/brute-force"
-                type="default"
-                label="percobaan brute force pada satu garis"
-            >
-                Brute Force
-            </MenuItemComponent>
+            {DefaultMenu.map((item: DefaultMenuItemComponentProps) => (
+                <MenuItemComponent
+                    key={item.label}
+                    {...item}
+                />
+            ))}
         </div>
         <div className="ui-molecules-drawer__footer absolute hidden">
             <div className="ui-molecules-drawer__footer__title flex p-16">
