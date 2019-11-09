@@ -1,0 +1,11 @@
+@import '@/scss/import.scss';
+
+.ui-app {
+    min-width: 100vw;
+    min-height: 100vh;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    @include padding-left(280px);
+    @include background-color(heading200);
+}

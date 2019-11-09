@@ -1,0 +1,35 @@
+@import '@/scss/import.scss';
+
+.ui-molecules-drawer {
+    left: 0;
+    top: 0;
+    width: 280px;
+    height: 100vh;
+
+    @include background-color(white);
+    @include border-right(1px, solid, heading300);
+
+    &__footer {
+        bottom: 30px;
+        left: 30px;
+        width: 350px;
+
+        @include background-color(white);
+        @include box-shadow-multi(0 2px 8px 0 rgba(get-color(black), 0.1));
+        @include rounded(10px);
+
+        &__title {
+            @include border-bottom(1px, dashed, heading400);
+        }
+
+        &__title,
+        &__account {
+            align-items: center;
+        }
+
+        &__user {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
+}
