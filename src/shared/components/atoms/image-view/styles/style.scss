@@ -1,0 +1,61 @@
+@import '@/scss/import.scss';
+
+.ui-atomic-image {
+    position: relative;
+    display: block;
+    width: auto;
+    height: auto;
+
+    @include rounded(0);
+
+    &--shadow {
+        @include box-shadow-multi(-1px 1px 6px 0 rgba(black, 0.24));
+    }
+
+    /**
+     * Type Images
+     */
+    &--type {
+        &-circle {
+            @include rounded(50%);
+        }
+
+        &-rounded {
+            @include rounded(5px);
+        }
+
+        &-rounded-bottom {
+            @include rounded(0 0 5px 5px);
+        }
+
+        &-rounded-left {
+            @include rounded(5px 0 0 5px);
+        }
+
+        &-rounded-top {
+            @include rounded(5px 5px 0 0);
+        }
+
+        &-rounded-right {
+            @include rounded(0 5px 5px 0);
+        }
+    }
+
+    &--object-fit {
+        &-contain {
+            object-fit: contain;
+        }
+
+        &-cover {
+            object-fit: cover;
+        }
+
+        &-fill {
+            object-fit: fill;
+        }
+
+        &-initial {
+            object-fit: initial;
+        }
+    }
+}

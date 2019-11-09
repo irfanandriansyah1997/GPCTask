@@ -1,0 +1,126 @@
+@import '@/scss/import.scss';
+
+.ui-atomic-text {
+    @include font-face(primary, text, xs, 400, normal, none, none, 12);
+
+    /*
+     * Font Family
+     */
+    &--font {
+        &-primary {
+            @include font-family(primary);
+        }
+
+        &-secondary {
+            @include font-family(secondary);
+        }
+    }
+
+    /*
+     * Styling
+     */
+    &--style {
+        &-heading-1 {
+            @include font-color(heading);
+            @include font-size(3xl);
+            @include line-height(44);
+        }
+
+        &-heading-2 {
+            @include font-color(heading);
+            @include font-size(2xl);
+            @include line-height(33);
+        }
+
+        &-heading-3 {
+            @include font-color(heading);
+            @include font-size(xl);
+            @include line-height(27);
+        }
+
+        &-heading-4 {
+            @include font-color(heading);
+            @include font-size(lg);
+            @include line-height(25);
+        }
+
+        &-heading-5 {
+            @include font-color(heading);
+            @include font-size(base);
+            @include line-height(22);
+        }
+
+        &-heading-6 {
+            @include font-color(heading);
+            @include font-size(sm);
+            @include line-height(19);
+        }
+
+        &-default {
+            @include font-color(text);
+            @include font-size(base);
+            @include line-height(22);
+        }
+
+        &-featured {
+            @include font-color(text);
+            @include font-size(28px);
+            @include line-height(39);
+        }
+
+        &-meta {
+            @include font-color(text);
+            @include font-size(xs);
+            @include line-height(18);
+        }
+
+        &-caption {
+            @include font-color(text);
+            @include font-size(xxs);
+            @include line-height(14);
+        }
+    }
+
+    /*
+     * Font-weight
+     */
+    &--font-weight {
+        &-light {
+            @include font-weight(300);
+        }
+
+        &-normal {
+            @include font-weight(400);
+        }
+
+        &-medium {
+            @include font-weight(500);
+        }
+
+        &-semibold {
+            @include font-weight(600);
+        }
+
+        &-bold {
+            @include font-weight(700);
+        }
+    }
+
+    &--align {
+        &-center {
+            text-align: center;
+        }
+
+        &-left {
+            text-align: left;
+        }
+
+        &-right {
+            text-align: right;
+        }
+
+        &-justify {
+            text-align: justify;
+        }
+    }
+}
