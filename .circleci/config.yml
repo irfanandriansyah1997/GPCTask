@@ -1,0 +1,163 @@
+version: 2
+jobs:
+  build:
+    filters:
+      branches:
+        ignore:
+          - gh-pages
+    docker:
+      - image: circleci/node:8.11
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+      - run:
+          name: Install depedencies
+          command: yarn install
+      - save_cache:
+          paths:
+            - web/node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+      - run:
+          name: Build Apps
+          command: yarn prod
+  linter:
+    filters:
+      branches:
+        ignore:
+          - gh-pages
+    docker:
+      - image: circleci/node:8.11
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+      - run:
+          name: Install depedencies
+          command: yarn install
+      - save_cache:
+          paths:
+            - web/node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+      - run:
+          name: Run Linter
+          command: yarn lint
+  test:
+    filters:
+      branches:
+        ignore:
+          - gh-pages
+    docker:
+      - image: circleci/node:8.11
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+      - run:
+          name: Install depedencies
+          command: yarn install
+      - save_cache:
+          paths:
+            - web/node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+      - run:
+          name: Run unit test
+          command: yarn test
+      - run:
+          name: Set codecov
+          command: node_modules/.bin/codecov --token=74bf45f4-adf5-450a-ade3-f4c747d8d557
+  deploy:
+    filters:
+      branches:
+        ignore:
+          - gh-pages
+    docker:
+      - image: circleci/node:8.11
+    working_directory: ~/repo
+    environment:
+      - SOURCE_BRANCH: master
+      - TARGET_BRANCH: gh-pages
+      - GH_EMAIL: irfanandriansyah10@gmail.com
+      - GH_NAME: Irfan Andriansyah
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+      - add_ssh_keys:
+          fingerprints:
+            - 'b2:f6:ba:97:b4:ba:c8:42:80:3a:9b:5e:bc:03:de:74'
+      - run:
+          name: Install dependencies
+          command: yarn install
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+      - deploy:
+          name: Deploy
+          command: |
+            if [ $CIRCLE_BRANCH == $SOURCE_BRANCH ]; then
+              git config --global user.email $GH_EMAIL
+              git config --global user.name $GH_NAME
+
+              git clone $CIRCLE_REPOSITORY_URL out
+
+              cd out
+              git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
+              git rm -rf .
+              cd ..
+
+              yarn prod
+
+              cp -a dist/. out/.
+
+              mkdir -p out/.circleci && cp -a .circleci/. out/.circleci/.
+              cd out
+
+              git add -A
+              git commit -m "Automated deployment to GitHub Pages: ${CIRCLE_SHA1}" --allow-empty
+
+              git push origin $TARGET_BRANCH
+            fi
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build:
+          filters:
+            branches:
+              ignore:
+                - gh-pages
+      - linter:
+          filters:
+            branches:
+              ignore:
+                - gh-pages
+          requires:
+            - build
+      - test:
+          filters:
+            branches:
+              ignore:
+                - gh-pages
+          requires:
+            - build
+      - deploy:
+          filters:
+            branches:
+              ignore:
+                - gh-pages
+          requires:
+            - linter
+            - test
