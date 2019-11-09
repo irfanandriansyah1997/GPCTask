@@ -4,5 +4,5 @@
  * @since 2019.09.16
  */
 export interface ColorThemeInterface {
-    [key: string]: string[];
+    [key: string]: string;
 }

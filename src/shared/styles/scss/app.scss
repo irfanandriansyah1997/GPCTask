@@ -2,16 +2,16 @@
  * Register All Widget & Pages
  */
 
-@import "import.scss";
+@import 'import.scss';
 
 // Reset Style
-@import "reset.scss";
+@import 'reset.scss';
 
 // Generate class helper
-@import "helpers/style.scss";
+@import 'helpers/style.scss';
 
 // Generate animation keyframe
-@import "animation/animation.scss";
+@import 'animation/animation.scss';
 
 // Generate transition
-@import "transition/transition.scss";
+@import 'transition/transition.scss';

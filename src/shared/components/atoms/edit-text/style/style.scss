@@ -1,0 +1,343 @@
+@import '@/scss/import.scss';
+
+.ui-atomic-edit-text {
+    $c: &;
+
+    flex-direction: column;
+    align-items: flex-start;
+
+    ::-webkit-input-placeholder {
+        @include font-weight(400);
+    }
+
+    :-ms-input-placeholder {
+        @include font-weight(400);
+    }
+
+    ::placeholder {
+        @include font-weight(400);
+    }
+
+    &:hover {
+        input,
+        textarea {
+            @include box-shadow-multi(
+                0 2px 4px rgba(get-color(heading500), 0.32)
+            );
+        }
+    }
+
+    &__label {
+        justify-content: space-between;
+        align-items: center;
+
+        .ui-atomic-text {
+            &:first-child {
+                @include font-color(heading);
+                @include transition(0.3s cubic-bezier(0.7, 0.3, 0, 1));
+            }
+        }
+    }
+
+    &__content {
+        input {
+            height: 48px;
+            width: 100%;
+
+            @include rounded(4px);
+            @include border(all, 1px, solid, heading500);
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 150px;
+        }
+
+        input,
+        textarea {
+            @include rounded(4px);
+            @include padding(all, 16px);
+            @include border(all, 1px, solid, heading500);
+            @include transition(0.3s cubic-bezier(0.7, 0.3, 0, 1));
+
+            @include font-face(
+                primary,
+                heading,
+                xs,
+                400,
+                normal,
+                none,
+                none,
+                12
+            );
+        }
+    }
+
+    &--with-addons-icon {
+        #{$c}__add-on {
+            @include background-color(transparent);
+        }
+    }
+
+    &__add-on {
+        right: 0;
+        top: 0;
+        width: 64px;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+
+        @include background-color(rgba(get-color(heading600), 0.08));
+
+        .ui-atomic-icon {
+            @include font-color(text);
+            @include transition(0.3s cubic-bezier(0.7, 0.3, 0, 1));
+        }
+    }
+
+    &--focus {
+        input,
+        textarea {
+            @include border(all, 1px, solid, primary);
+        }
+
+        #{$c}__add-on {
+            .ui-atomic-icon {
+                @include font-color(primary);
+            }
+        }
+
+        #{$c}__label {
+            .ui-atomic-text {
+                &:first-child {
+                    @include font-color(primary);
+                }
+            }
+        }
+    }
+
+    &--styling {
+        &-primary {
+            &#{$c}--with-addons {
+                &-icon {
+                    #{$c}__add-on {
+                        cursor: pointer;
+                        @include rounded(5px);
+                        @include linear-gradient(
+                            map-get($color-general, primary),
+                            primary300,
+                            to left
+                        );
+
+                        .ui-atomic-icon {
+                            color: white;
+                        }
+                    }
+                }
+            }
+
+            &#{$c}--focus {
+                input,
+                textarea {
+                    @include border(all, 1px, solid, primary);
+                }
+
+                #{$c}__add-on {
+                    .ui-atomic-icon {
+                        @include font-color(white);
+                    }
+                }
+
+                #{$c}__label {
+                    .ui-atomic-text {
+                        &:first-child {
+                            @include font-color(primary);
+                        }
+                    }
+                }
+            }
+        }
+
+        &-secondary {
+            &#{$c}--with-addons {
+                &-icon {
+                    #{$c}__add-on {
+                        cursor: pointer;
+                        @include rounded(5px);
+                        @include background-color(secondary);
+                        .ui-atomic-icon {
+                            color: white;
+                        }
+                    }
+                }
+            }
+
+            &#{$c}--focus {
+                input,
+                textarea {
+                    @include border(all, 1px, solid, secondary);
+                }
+
+                #{$c}__add-on {
+                    .ui-atomic-icon {
+                        @include font-color(white);
+                    }
+                }
+
+                #{$c}__label {
+                    .ui-atomic-text {
+                        &:first-child {
+                            @include font-color(secondary);
+                        }
+                    }
+                }
+            }
+        }
+
+        &-success {
+            &#{$c}--with-addons {
+                &-icon {
+                    #{$c}__add-on {
+                        cursor: pointer;
+                        @include rounded(5px);
+                        @include linear-gradient(
+                            map-get($color-general, secondary),
+                            secondary300,
+                            to left
+                        );
+                        .ui-atomic-icon {
+                            color: white;
+                        }
+                    }
+                }
+            }
+
+            &#{$c}--focus {
+                input,
+                textarea {
+                    @include border(all, 1px, solid, success);
+                }
+
+                #{$c}__add-on {
+                    .ui-atomic-icon {
+                        @include font-color(white);
+                    }
+                }
+
+                #{$c}__label {
+                    .ui-atomic-text {
+                        &:first-child {
+                            @include font-color(success);
+                        }
+                    }
+                }
+            }
+        }
+
+        &-warning {
+            &#{$c}--with-addons {
+                &-icon {
+                    #{$c}__add-on {
+                        cursor: pointer;
+                        @include rounded(5px);
+                        @include background-color(warning);
+                        .ui-atomic-icon {
+                            color: white;
+                        }
+                    }
+                }
+            }
+
+            &#{$c}--focus {
+                input,
+                textarea {
+                    @include border(all, 1px, solid, warning);
+                }
+
+                #{$c}__add-on {
+                    .ui-atomic-icon {
+                        @include font-color(white);
+                    }
+                }
+
+                #{$c}__label {
+                    .ui-atomic-text {
+                        &:first-child {
+                            @include font-color(warning);
+                        }
+                    }
+                }
+            }
+        }
+
+        &-danger {
+            &#{$c}--with-addons {
+                &-icon {
+                    #{$c}__add-on {
+                        cursor: pointer;
+                        @include rounded(5px);
+                        @include background-color(danger);
+                        .ui-atomic-icon {
+                            color: white;
+                        }
+                    }
+                }
+            }
+            &#{$c}--focus {
+                input,
+                textarea {
+                    @include border(all, 1px, solid, danger);
+                }
+
+                #{$c}__add-on {
+                    .ui-atomic-icon {
+                        @include font-color(white);
+                    }
+                }
+
+                #{$c}__label {
+                    .ui-atomic-text {
+                        &:first-child {
+                            @include font-color(danger);
+                        }
+                    }
+                }
+            }
+        }
+
+        &-info {
+            &#{$c}--with-addons {
+                &-icon {
+                    #{$c}__add-on {
+                        cursor: pointer;
+                        @include rounded(5px);
+                        @include background-color(info);
+                        .ui-atomic-icon {
+                            color: white;
+                        }
+                    }
+                }
+            }
+            &#{$c}--focus {
+                input,
+                textarea {
+                    @include border(all, 1px, solid, info);
+                }
+
+                #{$c}__add-on {
+                    .ui-atomic-icon {
+                        @include font-color(white);
+                    }
+                }
+
+                #{$c}__label {
+                    .ui-atomic-text {
+                        &:first-child {
+                            @include font-color(info);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,668 @@
+@import '@/scss/import.scss';
+
+.ui-atomic-button {
+    $c: &;
+
+    @include no-border();
+    @include rounded(4px);
+    @include transition(0.3s cubic-bezier(0.7, 0.3, 0, 1));
+
+    &__content {
+        justify-content: center;
+        align-items: center;
+
+        .ui-atomic-text {
+            white-space: nowrap;
+        }
+    }
+
+    &--size {
+        &-giant {
+            height: 56px;
+
+            &#{$c}--icon {
+                width: 56px;
+            }
+        }
+
+        &-large {
+            height: 48px;
+
+            &#{$c}--icon {
+                width: 48px;
+            }
+        }
+
+        &-medium {
+            height: 40px;
+
+            &#{$c}--icon {
+                width: 40px;
+            }
+        }
+
+        &-small {
+            height: 32px;
+
+            &#{$c}--icon {
+                width: 32px;
+            }
+        }
+
+        &-tiny {
+            height: 24px;
+
+            &#{$c}--icon {
+                width: 24px;
+            }
+        }
+    }
+
+    &--icon {
+        &-post {
+            #{$c}__content {
+                .ui-atomic-icon {
+                    @include margin-left(8px);
+                }
+            }
+        }
+
+        &-pre {
+            #{$c}__content {
+                flex-direction: row-reverse;
+
+                .ui-atomic-icon {
+                    @include margin-right(8px);
+                }
+            }
+        }
+    }
+
+    &--state {
+        &-fill {
+            &:active,
+            &:focus {
+                background-image: initial;
+            }
+
+            &#{$c}--styling {
+                &-default,
+                &-primary {
+                    @include linear-gradient(
+                        map-get($color-general, primary),
+                        primary300,
+                        to left
+                    );
+
+                    &:hover {
+                        @include box-shadow-multi(
+                            0 14px 16px -8px rgba(get-color(primary), 0.3)
+                        );
+                    }
+
+                    &:active {
+                        @include background-color(primary);
+                    }
+
+                    &:focus {
+                        @include background-color(primary600);
+                    }
+
+                    #{$c}__content {
+                        .ui-atomic-text,
+                        .ui-atomic-icon {
+                            @include font-color(white);
+                        }
+                    }
+                }
+
+                &-secondary {
+                    @include linear-gradient(
+                        map-get($color-general, secondary),
+                        secondary300,
+                        to left
+                    );
+
+                    &:hover {
+                        @include box-shadow-multi(
+                            0 14px 16px -8px rgba(get-color(secondary), 0.3)
+                        );
+                    }
+
+                    &:active {
+                        @include background-color(secondary);
+                    }
+
+                    &:focus {
+                        @include background-color(secondary600);
+                    }
+
+                    #{$c}__content {
+                        .ui-atomic-text,
+                        .ui-atomic-icon {
+                            @include font-color(white);
+                        }
+                    }
+                }
+
+                &-success {
+                    @include background-color(success);
+
+                    &:hover {
+                        @include box-shadow-multi(
+                            0 14px 16px -8px rgba(get-color(success), 0.3)
+                        );
+                    }
+
+                    &:active {
+                        @include background-color(success);
+                    }
+
+                    &:focus {
+                        @include background-color(success600);
+                    }
+
+                    #{$c}__content {
+                        .ui-atomic-text,
+                        .ui-atomic-icon {
+                            @include font-color(white);
+                        }
+                    }
+                }
+
+                &-warning {
+                    @include background-color(warning);
+
+                    &:hover {
+                        @include box-shadow-multi(
+                            0 14px 16px -8px rgba(get-color(warning), 0.3)
+                        );
+                    }
+
+                    &:active {
+                        @include background-color(warning);
+                    }
+
+                    &:focus {
+                        @include background-color(warning600);
+                    }
+
+                    #{$c}__content {
+                        .ui-atomic-text,
+                        .ui-atomic-icon {
+                            @include font-color(white);
+                        }
+                    }
+                }
+
+                &-danger {
+                    @include background-color(danger);
+
+                    &:hover {
+                        @include box-shadow-multi(
+                            0 14px 16px -8px rgba(get-color(danger), 0.3)
+                        );
+                    }
+
+                    &:active {
+                        @include background-color(danger);
+                    }
+
+                    &:focus {
+                        @include background-color(danger600);
+                    }
+
+                    #{$c}__content {
+                        .ui-atomic-text,
+                        .ui-atomic-icon {
+                            @include font-color(white);
+                        }
+                    }
+                }
+
+                &-info {
+                    @include background-color(info);
+
+                    &:hover {
+                        @include box-shadow-multi(
+                            0 14px 16px -8px rgba(get-color(info), 0.3)
+                        );
+                    }
+
+                    &:active {
+                        @include background-color(info);
+                    }
+
+                    &:focus {
+                        @include background-color(info600);
+                    }
+
+                    #{$c}__content {
+                        .ui-atomic-text,
+                        .ui-atomic-icon {
+                            @include font-color(white);
+                        }
+                    }
+                }
+
+                &-basic {
+                    @include background-color(heading300);
+
+                    &:hover {
+                        @include box-shadow-multi(
+                            0 14px 16px -8px rgba(get-color(heading300), 0.3)
+                        );
+                    }
+
+                    &:active {
+                        @include background-color(heading400);
+                    }
+
+                    &:focus {
+                        @include background-color(heading500);
+                    }
+
+                    #{$c}__content {
+                        .ui-atomic-text,
+                        .ui-atomic-icon {
+                            @include font-color(heading);
+                        }
+                    }
+                }
+
+                &-control {
+                    @include background-color(white);
+                    @include box-shadow-multi(0 0 0 8px get-color(heading400));
+
+                    &:hover {
+                        @include background-color(heading300);
+                        @include box-shadow-multi(
+                            0 0 0 8px get-color(heading500)
+                        );
+                    }
+
+                    &:active {
+                        @include background-color(heading400);
+                    }
+
+                    &:focus {
+                        @include background-color(heading500);
+                    }
+
+                    #{$c}__content {
+                        .ui-atomic-text,
+                        .ui-atomic-icon {
+                            @include font-color(heading);
+                        }
+                    }
+                }
+            }
+        }
+
+        &-outline {
+            &:active,
+            &:focus {
+                background-image: initial;
+            }
+
+            &#{$c}--styling {
+                &-default,
+                &-primary {
+                    @include background-color(transparent);
+                    @include border(all, 1px, solid, primary);
+
+                    &:hover {
+                        @include font-color(primary600);
+                        @include background-color(
+                            rgba(get-color(primary), 0.08)
+                        );
+                    }
+
+                    &:active,
+                    &:focus {
+                        @include background-color(
+                            rgba(get-color(primary), 0.16)
+                        );
+                    }
+
+                    #{$c}__content {
+                        .ui-atomic-text,
+                        .ui-atomic-icon {
+                            @include font-color(primary600);
+                        }
+                    }
+                }
+
+                &-secondary {
+                    @include background-color(transparent);
+                    @include border(all, 1px, solid, secondary);
+
+                    &:hover {
+                        @include font-color(secondary600);
+                        @include background-color(
+                            rgba(get-color(secondary), 0.08)
+                        );
+                    }
+
+                    &:active,
+                    &:focus {
+                        @include background-color(
+                            rgba(get-color(secondary), 0.16)
+                        );
+                    }
+
+                    #{$c}__content {
+                        .ui-atomic-text,
+                        .ui-atomic-icon {
+                            @include font-color(secondary600);
+                        }
+                    }
+                }
+
+                &-success {
+                    @include background-color(transparent);
+                    @include border(all, 1px, solid, success);
+
+                    &:hover {
+                        @include font-color(success600);
+                        @include background-color(
+                            rgba(get-color(success), 0.08)
+                        );
+                    }
+
+                    &:active,
+                    &:focus {
+                        @include background-color(
+                            rgba(get-color(success), 0.16)
+                        );
+                    }
+
+                    #{$c}__content {
+                        .ui-atomic-text,
+                        .ui-atomic-icon {
+                            @include font-color(success600);
+                        }
+                    }
+                }
+
+                &-warning {
+                    @include background-color(transparent);
+                    @include border(all, 1px, solid, warning);
+
+                    &:hover {
+                        @include font-color(warning600);
+                        @include background-color(
+                            rgba(get-color(warning), 0.08)
+                        );
+                    }
+
+                    &:active,
+                    &:focus {
+                        @include background-color(
+                            rgba(get-color(warning), 0.16)
+                        );
+                    }
+
+                    #{$c}__content {
+                        .ui-atomic-text,
+                        .ui-atomic-icon {
+                            @include font-color(warning600);
+                        }
+                    }
+                }
+
+                &-danger {
+                    @include background-color(transparent);
+                    @include border(all, 1px, solid, danger);
+
+                    &:hover {
+                        @include font-color(danger600);
+                        @include background-color(
+                            rgba(get-color(danger), 0.08)
+                        );
+                    }
+
+                    &:active,
+                    &:focus {
+                        @include background-color(
+                            rgba(get-color(danger), 0.16)
+                        );
+                    }
+
+                    #{$c}__content {
+                        .ui-atomic-text,
+                        .ui-atomic-icon {
+                            @include font-color(danger600);
+                        }
+                    }
+                }
+
+                &-info {
+                    @include background-color(transparent);
+                    @include border(all, 1px, solid, info);
+
+                    &:hover {
+                        @include font-color(info600);
+                        @include background-color(rgba(get-color(info), 0.08));
+                    }
+
+                    &:active,
+                    &:focus {
+                        @include background-color(rgba(get-color(info), 0.16));
+                    }
+
+                    #{$c}__content {
+                        .ui-atomic-text,
+                        .ui-atomic-icon {
+                            @include font-color(info600);
+                        }
+                    }
+                }
+
+                &-basic {
+                    @include background-color(transparent);
+                    @include border(all, 1px, solid, heading300);
+
+                    &:hover {
+                        @include font-color(heading500);
+                        @include background-color(
+                            rgba(get-color(heading300), 0.08)
+                        );
+                    }
+
+                    &:active,
+                    &:focus {
+                        @include background-color(
+                            rgba(get-color(heading300), 0.16)
+                        );
+                    }
+
+                    #{$c}__content {
+                        .ui-atomic-text,
+                        .ui-atomic-icon {
+                            @include font-color(heading500);
+                        }
+                    }
+                }
+            }
+        }
+
+        &-ghost {
+            &:active,
+            &:focus {
+                background-image: initial;
+            }
+
+            &#{$c}--styling {
+                &-default,
+                &-primary {
+                    @include background-color(transparent);
+                    @include border(all, 1px, solid, transparent);
+
+                    &:hover {
+                        @include font-color(primary600);
+                    }
+
+                    &:active {
+                        @include border(all, 1px, solid, primary);
+                    }
+
+                    &:focus {
+                        @include border(all, 1px, solid, primary);
+                    }
+
+                    #{$c}__content {
+                        .ui-atomic-text,
+                        .ui-atomic-icon {
+                            @include font-color(primary600);
+                        }
+                    }
+                }
+
+                &-secondary {
+                    @include background-color(transparent);
+                    @include border(all, 1px, solid, transparent);
+
+                    &:hover {
+                        @include font-color(secondary600);
+                    }
+
+                    &:active {
+                        @include border(all, 1px, solid, secondary);
+                    }
+
+                    &:focus {
+                        @include border(all, 1px, solid, secondary);
+                    }
+
+                    #{$c}__content {
+                        .ui-atomic-text,
+                        .ui-atomic-icon {
+                            @include font-color(secondary600);
+                        }
+                    }
+                }
+
+                &-success {
+                    @include background-color(transparent);
+                    @include border(all, 1px, solid, transparent);
+
+                    &:hover {
+                        @include font-color(success600);
+                    }
+
+                    &:active {
+                        @include border(all, 1px, solid, success);
+                    }
+
+                    &:focus {
+                        @include border(all, 1px, solid, success);
+                    }
+
+                    #{$c}__content {
+                        .ui-atomic-text,
+                        .ui-atomic-icon {
+                            @include font-color(success600);
+                        }
+                    }
+                }
+
+                &-warning {
+                    @include background-color(transparent);
+                    @include border(all, 1px, solid, transparent);
+
+                    &:hover {
+                        @include font-color(warning600);
+                    }
+
+                    &:active {
+                        @include border(all, 1px, solid, warning);
+                    }
+
+                    &:focus {
+                        @include border(all, 1px, solid, warning);
+                    }
+
+                    #{$c}__content {
+                        .ui-atomic-text,
+                        .ui-atomic-icon {
+                            @include font-color(warning600);
+                        }
+                    }
+                }
+
+                &-danger {
+                    @include background-color(transparent);
+                    @include border(all, 1px, solid, transparent);
+
+                    &:hover {
+                        @include font-color(danger600);
+                    }
+
+                    &:active {
+                        @include border(all, 1px, solid, danger);
+                    }
+
+                    &:focus {
+                        @include border(all, 1px, solid, danger);
+                    }
+
+                    #{$c}__content {
+                        .ui-atomic-text,
+                        .ui-atomic-icon {
+                            @include font-color(danger600);
+                        }
+                    }
+                }
+
+                &-info {
+                    @include background-color(transparent);
+                    @include border(all, 1px, solid, transparent);
+
+                    &:hover {
+                        @include font-color(info600);
+                    }
+
+                    &:active {
+                        @include border(all, 1px, solid, info);
+                    }
+
+                    &:focus {
+                        @include border(all, 1px, solid, info);
+                    }
+
+                    #{$c}__content {
+                        .ui-atomic-text,
+                        .ui-atomic-icon {
+                            @include font-color(info600);
+                        }
+                    }
+                }
+
+                &-basic {
+                    @include background-color(transparent);
+                    @include border(all, 1px, solid, transparent);
+
+                    &:hover {
+                        @include font-color(heading500);
+                    }
+
+                    &:active {
+                        @include border(all, 1px, solid, heading300);
+                    }
+
+                    &:focus {
+                        @include border(all, 1px, solid, heading300);
+                    }
+
+                    #{$c}__content {
+                        .ui-atomic-text,
+                        .ui-atomic-icon {
+                            @include font-color(heading500);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

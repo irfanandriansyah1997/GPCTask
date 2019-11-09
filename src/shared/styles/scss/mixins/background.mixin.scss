@@ -20,9 +20,21 @@
 
 @mixin linear-gradient($start-color: #555, $end-color: #333, $deg: 45deg) {
     background-repeat: repeat-x;
-    background-image: -webkit-linear-gradient($deg, $start-color, $end-color);
-    background-image: -o-linear-gradient($deg, $start-color, $end-color);
-    background-image: linear-gradient($deg, $start-color, $end-color);
+    background-image: -webkit-linear-gradient(
+        $deg,
+        get-color($start-color),
+        get-color($end-color)
+    );
+    background-image: -o-linear-gradient(
+        $deg,
+        get-color($start-color),
+        get-color($end-color)
+    );
+    background-image: linear-gradient(
+        $deg,
+        get-color($start-color),
+        get-color($end-color)
+    );
 }
 
 @mixin linear-gradient-multi($direction, $color-stops...) {
@@ -47,7 +59,7 @@
     $IEValue: $value * 100;
 
     opacity: $value;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=" + $IEValue +
-        ")";
+    -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=' + $IEValue +
+        ')';
     filter: alpha(opacity=$IEValue);
 }
