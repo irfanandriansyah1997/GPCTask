@@ -1,4 +1,6 @@
 # Triangle Simulator
+[![codecov](https://codecov.io/gh/irfanandriansyah1997/GPCTask/branch/master/graph/badge.svg?token=1GNpu5W5Ia)](https://codecov.io/gh/irfanandriansyah1997/GPCTask)
+[![CircleCI](https://circleci.com/gh/irfanandriansyah1997/GPCTask/tree/master.svg?style=svg)](https://circleci.com/gh/irfanandriansyah1997/GPCTask/tree/master)
 
 ## Testing & Linter Directory layout
 
