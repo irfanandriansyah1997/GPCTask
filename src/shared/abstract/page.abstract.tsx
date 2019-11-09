@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Component } from 'react';
 import * as PropTypes from 'prop-types';
 import { RouteComponentProps } from 'react-router';
-import TemplatesSelectorHOC, { TypeTemplate } from '@/templates/index';
 
 /**
  * Generate Interface
@@ -11,8 +10,6 @@ import TemplatesSelectorHOC, { TypeTemplate } from '@/templates/index';
  * @since 2019.09.16
  */
 abstract class PageAbstract<ViewModel> extends Component<RouteComponentProps> {
-    protected template: TemplatesSelectorHOC;
-
     protected route: RouteComponentProps;
 
     protected viewModel: (
@@ -38,7 +35,6 @@ abstract class PageAbstract<ViewModel> extends Component<RouteComponentProps> {
             router: RouteComponentProps
         ) => any,
         view: React.ComponentClass<ViewModel> | React.SFC<ViewModel>,
-        template: TypeTemplate,
         router: RouteComponentProps
     ) {
         super(props);
@@ -46,7 +42,6 @@ abstract class PageAbstract<ViewModel> extends Component<RouteComponentProps> {
         this.route = router;
         this.viewModel = viewModel;
         this.view = view;
-        this.template = new TemplatesSelectorHOC(template);
     }
 
     /**
@@ -74,10 +69,9 @@ abstract class PageAbstract<ViewModel> extends Component<RouteComponentProps> {
      */
     get Module(): any {
         const {
-            ViewModel, View, template, route
+            ViewModel, View, route
         } = this;
-        const { TemplateComponent } = template;
-        const Template = TemplateComponent(ViewModel(View, route));
+        const Template = ViewModel(View, route);
 
         return () => <Template />;
     }

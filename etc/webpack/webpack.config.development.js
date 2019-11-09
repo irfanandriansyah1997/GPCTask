@@ -26,7 +26,7 @@ module.exports = merge(baseConfig, {
             poll: true
         }
     },
-    entry: [path.resolve(__dirname, '../../src/app.dev.tsx')],
+    entry: [path.resolve(__dirname, '../../src/app.tsx')],
     module: {
         rules: [
             {
