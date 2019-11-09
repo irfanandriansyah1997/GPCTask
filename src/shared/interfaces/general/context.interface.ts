@@ -1,5 +1,4 @@
-import { AuthReducerInterface } from '@/store/reducers/data/auth/interfaces/auth-reducer.interface';
-import { SessionReducerInterface } from '@/store/reducers/data/session/interfaces/session-reducer.interface';
+import { RouteComponentProps } from 'react-router';
 
 /**
  * Base Default Context Interface
@@ -8,6 +7,5 @@ import { SessionReducerInterface } from '@/store/reducers/data/session/interface
  * @since 2019.09.16
  */
 export interface BaseDefaultContext {
-    auth: AuthReducerInterface;
-    session: SessionReducerInterface;
+    router?: RouteComponentProps;
 }

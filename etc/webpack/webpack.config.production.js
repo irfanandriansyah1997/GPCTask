@@ -13,7 +13,7 @@ module.exports = merge(baseConfig, {
         filename: 'script/[name].[chunkhash:32].bundle.js',
         chunkFilename: 'script/[name].[chunkhash:32].chunk.bundle.js'
     },
-    entry: [path.resolve(__dirname, '../../src/app.prod.tsx')],
+    entry: [path.resolve(__dirname, '../../src/app.tsx')],
     module: {
         rules: [
             {
@@ -58,7 +58,9 @@ module.exports = merge(baseConfig, {
             skipWaiting: true,
             runtimeCaching: [
                 {
-                    urlPattern: new RegExp('https://irfanandriansyah1997.github.io/TrainingReact/'),
+                    urlPattern: new RegExp(
+                        'https://irfanandriansyah1997.github.io/TrainingReact/'
+                    ),
                     handler: 'StaleWhileRevalidate'
                 }
             ]

@@ -8,18 +8,20 @@ import { BaseDefaultContext } from '@/interfaces/general/context.interface';
  * @author Irfan Andriansyah <irfan@99.co>
  * @since 2019.09.16
  */
-abstract class ViewModelAbstract<Props, State> extends Component<ViewModelAbstractInterface & Props, {} & State> {
+abstract class ViewModelAbstract<Props, State> extends Component<
+    ViewModelAbstractInterface & Props,
+    {} & State
+> {
     /**
      * getter baseContext
      * @description getter parameter base context api
      * @return { BaseDefaultContext }
      */
     get baseContext(): BaseDefaultContext {
-        const { auth, session } = this.props;
+        const { router } = this.props;
 
         return {
-            auth,
-            session
+            router
         };
     }
 
