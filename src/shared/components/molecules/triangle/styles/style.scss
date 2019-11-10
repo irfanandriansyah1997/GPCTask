@@ -1,0 +1,33 @@
+@import '@/scss/import.scss';
+
+.ui-molecules-triangle {
+    &__option {
+        bottom: 10px;
+        left: 10px;
+
+        &__item {
+            cursor: pointer;
+            opacity: 0.5;
+
+            @include padding(all, 0 10px);
+            @include transition(0.3s cubic-bezier(0.7, 0.3, 0, 1));
+
+            &:hover {
+                opacity: 0.75;
+            }
+
+            &--active,
+            &--active:hover {
+                opacity: 1;
+            }
+        }
+
+        &__indicator {
+            width: 15px;
+            height: 15px;
+
+            @include rounded(5px);
+            @include margin-right(5px);
+        }
+    }
+}
