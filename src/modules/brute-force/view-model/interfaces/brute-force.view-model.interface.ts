@@ -8,5 +8,4 @@ import { TrianglePointInterface } from '@/interfaces/general/triangle.interface'
 export interface ViewModelBruteForceStateInterface {
     point1: TrianglePointInterface;
     point2: TrianglePointInterface;
-    path: TrianglePointInterface[];
 }

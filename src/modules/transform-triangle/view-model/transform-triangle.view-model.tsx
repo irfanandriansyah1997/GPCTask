@@ -47,7 +47,7 @@ const ViewModelTransformTrianglePageDesktopHOC = (
                     y: -25
                 },
                 optionRotate: {
-                    degree: 0
+                    degree: 45
                 },
                 optionTransform: {
                     scaleX: -1,

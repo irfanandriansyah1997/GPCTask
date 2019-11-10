@@ -11,9 +11,7 @@ export interface ContextBruteForceInterface extends BaseDefaultContext {
         point1: TrianglePointInterface;
         point2: TrianglePointInterface;
         path: TrianglePointInterface[];
-        onChangePoint: (
-            point1: TrianglePointInterface,
-            point2: TrianglePointInterface
-        ) => void;
+        onChangePoint1: (point1: TrianglePointInterface) => void;
+        onChangePoint2: (point2: TrianglePointInterface) => void;
     };
 }

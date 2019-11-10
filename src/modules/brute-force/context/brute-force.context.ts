@@ -19,10 +19,8 @@ const BruteForceContext = React.createContext<ContextBruteForceInterface>({
             y: 0
         },
         path: [],
-        onChangePoint: (
-            point: TrianglePointInterface,
-            point2: TrianglePointInterface
-        ) => {}
+        onChangePoint1: (point: TrianglePointInterface) => {},
+        onChangePoint2: (point: TrianglePointInterface) => {}
     }
 });
 
