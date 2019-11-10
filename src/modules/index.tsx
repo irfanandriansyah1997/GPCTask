@@ -9,6 +9,9 @@ import './styles/style.scss';
 const TriangleModule = React.lazy(() => import(
     /* webpackChunkName: "triangle" */ '@/modules/transform-triangle/transform-triangle.page'
 ));
+const BruteForceModule = React.lazy(() => import(
+    /* webpackChunkName: "brute-force" */ '@/modules/brute-force/brute-force.page'
+));
 
 
 /**
@@ -26,6 +29,7 @@ class AppModules extends React.Component<any> {
                             <Switch>
                                 <Route exact path="/" component={TriangleModule} />
                                 <Route path="/triangle" component={TriangleModule} />
+                                <Route path="/brute-force" component={BruteForceModule} />
                             </Switch>
                         </Suspense>
                     </div>
