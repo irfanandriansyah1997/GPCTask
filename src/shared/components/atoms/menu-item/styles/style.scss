@@ -1,0 +1,46 @@
+@import '@/scss/import.scss';
+
+.ui-atomic-menu-item {
+    width: 100%;
+    text-decoration: none;
+    overflow: hidden;
+    outline: none;
+
+    .ui-atomic-icon {
+        @include font-color(text);
+    }
+
+    .ui-atomic-icon,
+    .ui-atomic-text {
+        @include transition(0.3s cubic-bezier(0.7, 0.3, 0, 1));
+    }
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 4px;
+        height: 100%;
+        opacity: 0;
+
+        @include rounded(5px 0 0 5px);
+        @include transform-translateX(100%);
+        @include background-color(secondary);
+    }
+
+    &--active,
+    &:hover {
+        .ui-atomic-icon,
+        p.ui-atomic-text {
+            @include font-color(secondary);
+        }
+
+        &:before {
+            opacity: 1;
+
+            @include transition(0.3s cubic-bezier(0.7, 0.3, 0, 1));
+            @include transform-translateX(0);
+        }
+    }
+}
