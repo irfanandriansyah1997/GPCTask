@@ -8,6 +8,7 @@ import { ViewModelTransformTriangleStateInterface } from './interfaces/transform
 import { ContextTransformTriangleInterface } from '../context/interfaces/transform-triangle.context.interfaces';
 import TransformTriangleContext from '@/modules/transform-triangle/context/transform-triangle.context';
 import { TriangleObjectInterface } from '@/interfaces/general/triangle.interface';
+import { MatrixMultiplyCalculatorUtil, MatrixAddCalculatorUtil } from '@/utils/matrix.util';
 
 /**
  * Transform Triangle Desktop View Model
@@ -34,29 +35,31 @@ const ViewModelTransformTrianglePageDesktopHOC = (
 
             this.state = {
                 point1: {
-                    x: 20,
-                    y: 100
+                    x: 10,
+                    y: 70
                 },
                 point2: {
-                    x: 180,
-                    y: 80
+                    x: 10,
+                    y: -25
                 },
                 point3: {
-                    x: 120,
-                    y: 20
+                    x: 150,
+                    y: -25
                 },
                 optionRotate: {
                     degree: 0
                 },
                 optionTransform: {
-                    scaleX: 0,
-                    scaleY: 0
+                    scaleX: -1,
+                    scaleY: 1
                 },
                 optionTranslate: {
-                    positionX: 0,
-                    positionY: 0
+                    positionX: -20,
+                    positionY: -20
                 }
             };
+
+            this.getMultiplyMatrix = this.getMultiplyMatrix.bind(this);
         }
 
         /**
@@ -64,16 +67,33 @@ const ViewModelTransformTrianglePageDesktopHOC = (
          * @return {TriangleObjectInterface}
          */
         get pointRotate(): TriangleObjectInterface {
-            const {
-                point1,
-                point2,
-                point3
-            } = this.state;
+            const { optionRotate } = this.state;
+            const { degree } = optionRotate;
+
+            const MultiplyMatrix: number[][] = this.getMultiplyMatrix([
+                [
+                    this.getTrigonometricValue('cos', degree || 0),
+                    this.getTrigonometricValue('sin', degree || 0)
+                ],
+                [
+                    this.getTrigonometricValue('sin', (degree || 0) * -1),
+                    this.getTrigonometricValue('cos', (degree || 0))
+                ]
+            ]);
 
             return {
-                point1,
-                point2,
-                point3
+                point1: {
+                    x: MultiplyMatrix[0][0],
+                    y: MultiplyMatrix[0][1]
+                },
+                point2: {
+                    x: MultiplyMatrix[1][0],
+                    y: MultiplyMatrix[1][1]
+                },
+                point3: {
+                    x: MultiplyMatrix[2][0],
+                    y: MultiplyMatrix[2][1]
+                }
             };
         }
 
@@ -82,16 +102,26 @@ const ViewModelTransformTrianglePageDesktopHOC = (
          * @return {TriangleObjectInterface}
          */
         get pointTransform(): TriangleObjectInterface {
-            const {
-                point1,
-                point2,
-                point3
-            } = this.state;
+            const { optionTransform } = this.state;
+
+            const MultiplyMatrix: number[][] = this.getMultiplyMatrix([
+                [(optionTransform.scaleX || 0), 0],
+                [0, (optionTransform.scaleY || 0)]
+            ]);
 
             return {
-                point1,
-                point2,
-                point3
+                point1: {
+                    x: MultiplyMatrix[0][0],
+                    y: MultiplyMatrix[0][1]
+                },
+                point2: {
+                    x: MultiplyMatrix[1][0],
+                    y: MultiplyMatrix[1][1]
+                },
+                point3: {
+                    x: MultiplyMatrix[2][0],
+                    y: MultiplyMatrix[2][1]
+                }
             };
         }
 
@@ -100,16 +130,34 @@ const ViewModelTransformTrianglePageDesktopHOC = (
          * @return {TriangleObjectInterface}
          */
         get pointTranslate(): TriangleObjectInterface {
-            const {
-                point1,
-                point2,
-                point3
-            } = this.state;
+            const { optionTranslate } = this.state;
+            const { positionX, positionY } = optionTranslate;
+
+            const MultiplyMatrix: number[][] = MatrixAddCalculatorUtil(
+                this.getMultiplyMatrix([
+                    [1, 0],
+                    [0, 1]
+                ]),
+                [
+                    [(positionX || 0), (positionY || 0)],
+                    [(positionX || 0), (positionY || 0)],
+                    [(positionX || 0), (positionY || 0)]
+                ]
+            );
 
             return {
-                point1,
-                point2,
-                point3
+                point1: {
+                    x: MultiplyMatrix[0][0],
+                    y: MultiplyMatrix[0][1]
+                },
+                point2: {
+                    x: MultiplyMatrix[1][0],
+                    y: MultiplyMatrix[1][1]
+                },
+                point3: {
+                    x: MultiplyMatrix[2][0],
+                    y: MultiplyMatrix[2][1]
+                }
             };
         }
 
@@ -164,6 +212,47 @@ const ViewModelTransformTrianglePageDesktopHOC = (
                     }
                 }
             };
+        }
+
+        /**
+         * Get degree cos / sin value
+         * @param type
+         * @param degree
+         */
+        public getTrigonometricValue(type: 'cos' | 'sin', degree: number): number {
+            let response = '';
+
+            if (type === 'cos') {
+                response = Math.cos(Math.PI * degree / 180).toFixed(5);
+            }
+
+            if (type === 'sin') {
+                response = Math.sin(Math.PI * degree / 180).toFixed(5);
+            }
+
+            return parseFloat(response);
+        }
+
+        /**
+         * Multiply Matrix Based On State Points
+         * @param {number[][]} matrix
+         * @return {number[][]}
+         */
+        public getMultiplyMatrix(matrix: number[][]): number[][] {
+            const {
+                point1,
+                point2,
+                point3
+            } = this.state;
+
+            return MatrixMultiplyCalculatorUtil(
+                [
+                    [point1.x, point1.y],
+                    [point2.x, point2.y],
+                    [point3.x, point3.y]
+                ],
+                matrix
+            );
         }
 
         render(): ReactNode {

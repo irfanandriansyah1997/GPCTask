@@ -63,24 +63,13 @@ class AtomSVGPathlineComponent extends React.Component<
         super(props);
 
         this.getPath = this.getPath.bind(this);
-        this.getTransformAttribute = this.getTransformAttribute.bind(this);
-
-        this.state = {
-            transform: ''
-        };
-    }
-
-    componentDidMount() {
-        this.setState({
-            transform: this.getTransformAttribute()
-        });
     }
 
     /**
      * Getter Transform Attribute
      * @return {string}
      */
-    getTransformAttribute(): string {
+    get getTransformAttribute(): string {
         const { node } = this;
         const { viewBox } = this.props;
 
@@ -140,14 +129,12 @@ class AtomSVGPathlineComponent extends React.Component<
             viewBox,
             ...other
         } = this.props;
-        const { transform } = this.state;
         const { getPath } = this;
 
         return (
             <path
                 ref={this.node}
                 {...other}
-                style={{ transform }}
                 fill="rgba(0, 0, 0, 0)"
                 d={getPath(point, radius)}
                 stroke={ColorDefaultVariableStyle[other.stroke]}

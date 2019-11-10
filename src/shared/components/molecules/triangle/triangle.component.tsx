@@ -19,8 +19,6 @@ class MoleculesTriangleComponent extends React.Component<MoleculesTrianglePropsI
     constructor(props: MoleculesTrianglePropsInterface) {
         super(props);
 
-        this.maxYAxis = this.maxYAxis.bind(this);
-        this.minXAxis = this.minXAxis.bind(this);
         this.genPoint = this.genPoint.bind(this);
 
         this.state = {
@@ -30,68 +28,20 @@ class MoleculesTriangleComponent extends React.Component<MoleculesTrianglePropsI
     }
 
     /**
-     * Getter Max Y Axis Position
-     * @param {string} type
-     * @return {number}
-     */
-    public maxYAxis(type: 'point' | 'default'): number {
-        return [
-            this.props[type].point1,
-            this.props[type].point2,
-            this.props[type].point3
-        ].reduce((
-            prev: TrianglePointInterface,
-            current: TrianglePointInterface
-        ): TrianglePointInterface => {
-            if (current.y > prev.y) {
-                return current;
-            }
-
-            return prev;
-        }, {
-            x: 0,
-            y: 0
-        }).y;
-    }
-
-    /**
-     * Getter Min X Axis Position
-     * @param {string} type
-     * @return {number}
-     */
-    public minXAxis(type: 'point' | 'default'): number {
-        return [
-            this.props[type].point1,
-            this.props[type].point2,
-            this.props[type].point3
-        ].reduce((
-            prev: TrianglePointInterface,
-            current: TrianglePointInterface
-        ): TrianglePointInterface => {
-            if (current.x < prev.x) {
-                return current;
-            }
-
-            return prev;
-        }, this.props[type].point1).x;
-    }
-
-    /**
      * Get points based on props point
      * @param {string} type
      * @return{TrianglePointInterface[]}
      */
     public genPoint(type: 'point' | 'default'): TrianglePointInterface[] {
-        const { minXAxis, maxYAxis } = this;
-
+        const { viewBox } = this.props;
         return [
             this.props[type].point1,
             this.props[type].point2,
             this.props[type].point3,
             this.props[type].point1
         ].map((item: TrianglePointInterface) => ({
-            x: item.x - minXAxis(type),
-            y: maxYAxis(type) - item.y
+            x: item.x + (viewBox / 2),
+            y: item.y + (viewBox / 2)
         }));
     }
 
@@ -101,36 +51,37 @@ class MoleculesTriangleComponent extends React.Component<MoleculesTrianglePropsI
         const { genPoint } = this;
 
         return (
-            <div className="ui-molecules-triangle relative">
-                <svg
-                    width={size}
-                    height={size}
-                    viewBox={`0 0 ${viewBox} ${viewBox}`}
-                    style={{ backgroundColor: ColorDefaultVariableStyle.white }}
-                >
-                    {
-                        defaultChart === true ? (
-                            <AtomSVGPathlineComponent
-                                point={genPoint('default')}
-                                stroke="secondary"
-                                strokeWidth={1}
-                                radius={2}
-                                viewBox={viewBox}
-                            />
-                        ): null
-                    }
-                    {
-                        pointChart === true ? (
-                            <AtomSVGPathlineComponent
-                                point={genPoint('point')}
-                                stroke="primary"
-                                strokeWidth={1}
-                                radius={2}
-                                viewBox={viewBox}
-                            />
-                        ): null
-                    }
-                </svg>
+            <div className="ui-molecules-triangle flex relative">
+                <div className="ui-molecules-triangle__svg flex relative">
+                    <svg
+                        width={size}
+                        height={size}
+                        viewBox={`0 0 ${viewBox} ${viewBox}`}
+                    >
+                        {
+                            defaultChart === true ? (
+                                <AtomSVGPathlineComponent
+                                    point={genPoint('default')}
+                                    stroke="secondary"
+                                    strokeWidth={1}
+                                    radius={2}
+                                    viewBox={viewBox}
+                                />
+                            ): null
+                        }
+                        {
+                            pointChart === true ? (
+                                <AtomSVGPathlineComponent
+                                    point={genPoint('point')}
+                                    stroke="primary"
+                                    strokeWidth={1}
+                                    radius={2}
+                                    viewBox={viewBox}
+                                />
+                            ): null
+                        }
+                    </svg>
+                </div>
 
                 <div className="ui-molecules-triangle__option absolute flex">
                     <div

@@ -28,7 +28,7 @@ class TransformTriangleViewDesktopPage extends React.Component<ViewModelAbstract
      */
     renderHeading(title: string, label: string): React.ReactNode {
         return (
-            <div className="absolute ui-pages-transform-triangle__content__heading">
+            <div className="ui-pages-transform-triangle__content__heading m-15">
                 <TextComponent
                     tag="p"
                     align="left"
@@ -91,7 +91,7 @@ class TransformTriangleViewDesktopPage extends React.Component<ViewModelAbstract
                             point={triangle.rotate.point}
                             default={triangle.point}
                             size={300}
-                            viewBox={300}
+                            viewBox={500}
                         />
                         <div className="ui-pages-transform-triangle__content__footer p-10 absolute">
                             <EditTextComponent
@@ -105,7 +105,9 @@ class TransformTriangleViewDesktopPage extends React.Component<ViewModelAbstract
                                 onChange={(event: AtomEditTextOnChangeInterface) => triangle
                                     .rotate
                                     .onChange(
-                                        parseInt(event.target.value, 10)
+                                        event.target.value === ''
+                                            ? 0
+                                            : parseInt(event.target.value, 10)
                                     )
                                 }
                             />
@@ -117,7 +119,7 @@ class TransformTriangleViewDesktopPage extends React.Component<ViewModelAbstract
                             point={triangle.transform.point}
                             default={triangle.point}
                             size={300}
-                            viewBox={300}
+                            viewBox={500}
                         />
                         <div className="ui-pages-transform-triangle__content__footer--dual p-10 flex absolute">
                             <EditTextComponent
@@ -130,7 +132,9 @@ class TransformTriangleViewDesktopPage extends React.Component<ViewModelAbstract
                                 onChange={(event: AtomEditTextOnChangeInterface) => triangle
                                     .transform
                                     .onChange(
-                                        parseInt(event.target.value, 10),
+                                        event.target.value === ''
+                                            ? 0
+                                            : parseInt(event.target.value, 10),
                                         triangle.transform.option.scaleY
                                     )
                                 }
@@ -146,7 +150,9 @@ class TransformTriangleViewDesktopPage extends React.Component<ViewModelAbstract
                                     .transform
                                     .onChange(
                                         triangle.transform.option.scaleX,
-                                        parseInt(event.target.value, 10)
+                                        event.target.value === ''
+                                            ? 0
+                                            : parseInt(event.target.value, 10)
                                     )
                                 }
                             />
@@ -158,7 +164,7 @@ class TransformTriangleViewDesktopPage extends React.Component<ViewModelAbstract
                             point={triangle.translate.point}
                             default={triangle.point}
                             size={300}
-                            viewBox={300}
+                            viewBox={500}
                         />
                         <div className="ui-pages-transform-triangle__content__footer--dual p-10 flex absolute">
                             <EditTextComponent
@@ -171,7 +177,9 @@ class TransformTriangleViewDesktopPage extends React.Component<ViewModelAbstract
                                 onChange={(event: AtomEditTextOnChangeInterface) => triangle
                                     .translate
                                     .onChange(
-                                        parseInt(event.target.value, 10),
+                                        event.target.value === ''
+                                            ? 0
+                                            : parseInt(event.target.value, 10),
                                         triangle.translate.option.positionY
                                     )
                                 }
@@ -187,7 +195,9 @@ class TransformTriangleViewDesktopPage extends React.Component<ViewModelAbstract
                                     .translate
                                     .onChange(
                                         triangle.translate.option.positionX,
-                                        parseInt(event.target.value, 10)
+                                        event.target.value === ''
+                                            ? 0
+                                            : parseInt(event.target.value, 10)
                                     )
                                 }
                             />

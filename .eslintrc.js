@@ -40,6 +40,7 @@ module.exports = {
                     'componentDidMount',
                     'componentWillMount',
                     'componentWillUnmount',
+                    'componentWillReceiveProps',
                     'componentDidCatch'
                 ]
             }
