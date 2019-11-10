@@ -10,6 +10,39 @@
     @include background-color(heading200);
 
     &__content {
+        width: 100%;
+
         @include padding(all, 24px);
+    }
+}
+
+.ui-pages__greeting {
+    width: calc(100% - 20px);
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 150px;
+
+    @include padding(30px);
+    @include rounded(10px);
+    @include margin(all, 70px 10px 30px);
+    @include background-color(rgba(get-color(heading500), 0.15));
+    @include border(all, 1px, solid, heading300);
+
+    &__content {
+        flex: 0 0 50%;
+        max-width: 50%;
+
+        @include padding-left(50px);
+    }
+
+    &__content,
+    .ui-atomic-image {
+        @include margin-bottom(20px);
+    }
+
+    .ui-atomic-image {
+        height: 200px;
+
+        @include margin-right(50px);
     }
 }

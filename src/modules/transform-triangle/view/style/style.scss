@@ -1,0 +1,40 @@
+@import '@/scss/import.scss';
+
+.ui-pages-transform-triangle {
+    &__content {
+        flex: 0 0 calc(calc(100% / 3) - 20px);
+        overflow: hidden;
+
+        @include background-color(#fff);
+        @include rounded(10px);
+        @include border(all, 1px, solid, heading300);
+        @include padding-bottom(68px);
+
+        &__heading {
+            top: 10px;
+            left: 10px;
+            z-index: 100;
+        }
+
+        &__footer,
+        &__footer--dual {
+            @include border-top(1px, solid, heading300);
+            @include box-shadow-multi(0 -1px 10px 0 rgba(black, 0.05));
+
+            z-index: 100;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+        }
+
+        &__footer--dual {
+            justify-content: space-between;
+
+            .ui-atomic-edit-text {
+                width: calc(50% - 5px);
+                max-width: calc(50% - 5px);
+                flex: 0 0 calc(50% - 5px);
+            }
+        }
+    }
+}
