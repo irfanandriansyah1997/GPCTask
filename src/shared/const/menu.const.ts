@@ -22,7 +22,7 @@ export const DefaultMenu: DefaultMenuItemComponentProps[] = [
         icon: 'show_chart',
         link: '/brute-force',
         type: 'default',
-        label: 'percobaan brute force pada satu garis',
+        label: 'menentukan garis lurus berdasarkan 2 titik',
         children: 'Brute Force'
     }
 ];
